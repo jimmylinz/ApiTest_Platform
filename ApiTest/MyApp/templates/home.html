@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{
+            background: url("../static/homebg.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+
+<div style="text-align: center">
+    <h1 style="color: white">
+        <br>
+        欢迎{{ username }}使用 接口测试平台
+    </h1>
+    <h3 style="color: white">welcome to ApiTest</h3>
+    <textarea  placeholder="匿名吐槽专用输入框，点击”呸“，即可立即吐槽!" id="tucao_input" cols="50" rows="10" style="border-radius: 5px;padding-left: 10px;box-shadow: 4px 4px 9px grey"></textarea>
+    <br>
+    <button onclick="pei()" style="border-radius: 0px 0px 50px 50px;width: 100px">呸!</button>
+{#    <img src="/static/home.jpg" alt="图片丢了" style="width: 200px">#}
+</div>
+    <script>
+        function pei() {
+            $.get("/pei/",{
+                "tucao_text":document.getElementById("tucao_input").value,
+            },function (ret) {
+                alert("已成功吐槽！")
+            })
+        }
+    </script>
+
+
+
+</body>
+</html>
